@@ -34,10 +34,18 @@ while(run):
     
     mySnake.move_snake()
 
+    # detect collisions with wall.
+    if(mySnake.head.xcor() > 281 or mySnake.head.xcor() < -281 or mySnake.head.ycor() > 281 or mySnake.head.ycor() < -281):
+        run = False
+        scoreBoard.game_over()
+
     # detect collisions with food.
     if(mySnake.head.distance(food) < 15):
         # print("score!")
         food.regen()
         scoreBoard.increment()
+
+    if(run == False):
+        print("game over......")
 
 screen.exitonclick()
