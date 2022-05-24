@@ -11,13 +11,9 @@ class Snake:
         self.head = self.parts[0]
 
     def create_snake(self):
-        for p in START_POS:
-            a = t.Turtle()
-            a.penup()
-            a.color("white")
-            a.shape("square")
-            a.goto(p)
-            self.parts.append(a)
+        for pos in START_POS:
+            self.add_part(pos)
+            
 
     def move_snake(self):
         for part_num in range(len(self.parts) - 1, 0, -1):
@@ -26,6 +22,19 @@ class Snake:
             self.parts[part_num].goto(new_x, new_y)
         # move head.
         self.head.forward(MOVE_DIST)
+
+    # add a part to body.
+    def add_part(self, pos):
+        a = t.Turtle()
+        a.penup()
+        a.color("white")
+        a.shape("square")
+        a.goto(pos)
+        self.parts.append(a)
+    
+    # extend body by adding a part at the end of snake body.
+    def extend(self):
+        self.add_part(self.parts[-1].position())  # get a hold of position of last part of snake body.
 
     def up(self):
         if(self.head.heading() != 270):

@@ -39,13 +39,21 @@ while(run):
         run = False
         scoreBoard.game_over()
 
+    # detect collision with tail.
+    # head colliding with any part of snake body.
+    for part in mySnake.parts:
+        if(part != mySnake.head and mySnake.head.distance(part) < 10):  # ignore collision of head with itself.
+            run = False
+            scoreBoard.game_over()
+
     # detect collisions with food.
     if(mySnake.head.distance(food) < 15):
         # print("score!")
         food.regen()
+        mySnake.extend()
         scoreBoard.increment()
 
     if(run == False):
-        print("game over......")
+        print("game over......")  # print to terminal.
 
 screen.exitonclick()
