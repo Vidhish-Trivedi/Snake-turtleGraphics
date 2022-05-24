@@ -41,8 +41,8 @@ while(run):
 
     # detect collision with tail.
     # head colliding with any part of snake body.
-    for part in mySnake.parts:
-        if(part != mySnake.head and mySnake.head.distance(part) < 10):  # ignore collision of head with itself.
+    for part in mySnake.parts[1:]:  # ignore collision of head with itself.
+        if(mySnake.head.distance(part) < 10):
             run = False
             scoreBoard.game_over()
 
