@@ -5,9 +5,10 @@ from snakeClass import Snake
 from foodClass import Food
 from scoreClass import Score
 
+t.colormode(255)  # set color mode to accept values in range 0 to 255.
 screen = t.Screen()
 screen.setup(width = 600, height = 600)
-screen.bgcolor("black")
+screen.bgcolor(54, 174, 124)  # set background color.
 screen.title("......sNaKe......")
 
 # create snake body.
@@ -35,7 +36,7 @@ while(run):
     mySnake.move_snake()
 
     # detect collisions with wall.
-    if(mySnake.head.xcor() > 281 or mySnake.head.xcor() < -281 or mySnake.head.ycor() > 281 or mySnake.head.ycor() < -281):
+    if(mySnake.head.xcor() > 295 or mySnake.head.xcor() < -301 or mySnake.head.ycor() > 300 or mySnake.head.ycor() < -295):
         run = False
         scoreBoard.game_over()
 

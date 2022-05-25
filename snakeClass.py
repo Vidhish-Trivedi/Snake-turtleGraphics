@@ -27,7 +27,7 @@ class Snake:
     def add_part(self, pos):
         a = t.Turtle()
         a.penup()
-        a.color("white")
+        a.color(100, 111, 212)  # body color for snake.
         a.shape("square")
         a.goto(pos)
         self.parts.append(a)
