@@ -37,15 +37,17 @@ while(run):
 
     # detect collisions with wall.
     if(mySnake.head.xcor() > 295 or mySnake.head.xcor() < -301 or mySnake.head.ycor() > 300 or mySnake.head.ycor() < -295):
-        run = False
-        scoreBoard.game_over()
+        # run = False
+        scoreBoard.reset_score()
+        mySnake.reset_snake()
 
     # detect collision with tail.
     # head colliding with any part of snake body.
     for part in mySnake.parts[1:]:  # ignore collision of head with itself.
         if(mySnake.head.distance(part) < 10):
-            run = False
-            scoreBoard.game_over()
+            # run = False
+            scoreBoard.reset_score()
+            mySnake.reset_snake()
 
     # detect collisions with food.
     if(mySnake.head.distance(food) < 15):

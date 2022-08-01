@@ -31,6 +31,17 @@ class Snake:
         a.shape("square")
         a.goto(pos)
         self.parts.append(a)
+
+    # Reset snake to starting position.
+    def reset_snake(self):
+        # Move current snake out of view.
+        for part in self.parts:
+            part.goto(1000, 1000)
+
+        self.parts.clear()  # Remove all parts of the snake.
+        # Re-initialize the snake.
+        self.create_snake()  # Create new snake in the starting position.
+        self.head = self.parts[0]
     
     # extend body by adding a part at the end of snake body.
     def extend(self):
